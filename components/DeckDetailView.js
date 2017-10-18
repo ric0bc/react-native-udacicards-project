@@ -23,7 +23,7 @@ class DeckDetailView extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.addButton}
-          onPress={() => this.props.navigation.navigate('AddCard', {item})}>
+          onPress={() => this.props.navigation.navigate('QuizView', {item})}>
           <Text>Start Quiz</Text>
         </TouchableOpacity>
       </View>
