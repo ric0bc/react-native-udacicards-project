@@ -1,17 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { Constants } from 'expo'
 
 import * as API from './utils/api'
 import reducer from './reducers/rootReducer'
+import DeckListView from './components/DeckListView'
+
+function UdaciStatusBar (){
+  return (
+    <View style={{height: Constants.statusBarHeight}}>
+      <StatusBar translucent/>
+    </View>
+  )
+}
 
 export default class App extends React.Component {
   state = {
     decks: {}
   }
   componentDidMount () {
-    // API.saveDeckTitle({ title: 'udacity' })
+    // API.saveDeckTitle({ title: 'redux' })
     //   .then( () => API.getDecks())
 
     // API.addCardToDeck({
@@ -22,22 +32,23 @@ export default class App extends React.Component {
     //   }
     // })
 
-    API.getDecks().then(data => this.setState({decks: data}))
+
 
   }
 
   render() {
     return (
-      <Provider store={createStore(reducer)}>
+      <Provider store={store}>
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
+          <UdaciStatusBar />
+          <DeckListView />
         </View>
       </Provider>
     );
   }
 }
+
+const store = createStore(reducer)
 
 const styles = StyleSheet.create({
   container: {
