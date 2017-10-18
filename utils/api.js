@@ -39,7 +39,7 @@ export function addCardToDeck ({ title, card }) {
         questions: test.questions.concat(card)
       }
     })) )
-  
+
 }
 
 export function deleteDeck () {
@@ -49,5 +49,4 @@ export function deleteDeck () {
 export function getDecks () {
   return AsyncStorage.getItem(FLASHCARDS_STORAGE_KEY)
     .then( res => JSON.parse(res))
-    .then( data => console.log(data))
 }
