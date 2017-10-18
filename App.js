@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
+import { TabNavigator } from 'react-navigation'
 
 import * as API from './utils/api'
 import reducer from './reducers/rootReducer'
@@ -15,6 +16,12 @@ function UdaciStatusBar (){
     </View>
   )
 }
+
+const Tabs = TabNavigator({
+  ListView: {
+    screen: DeckListView
+  }
+})
 
 export default class App extends React.Component {
   state = {
@@ -41,7 +48,7 @@ export default class App extends React.Component {
       <Provider store={store}>
         <View style={styles.container}>
           <UdaciStatusBar />
-          <DeckListView />
+          <Tabs />
         </View>
       </Provider>
     );
