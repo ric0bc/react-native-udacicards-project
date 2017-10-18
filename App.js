@@ -10,6 +10,7 @@ import reducer from './reducers/rootReducer'
 import DeckListView from './components/DeckListView'
 import DeckDetailView from './components/DeckDetailView'
 import DeckNewView from './components/DeckNewView'
+import AddCardToDeck from './components/AddCardToDeck'
 
 function UdaciStatusBar (){
   return (
@@ -34,6 +35,9 @@ const MainNavigator = StackNavigator({
   },
   DetailView: {
     screen: DeckDetailView
+  },
+  AddCard: {
+    screen: AddCardToDeck
   }
 })
 

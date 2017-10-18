@@ -18,10 +18,6 @@ class DeckListView extends Component {
   }
   _keyExtractor = (item, index) => index;
 
-  onPressItem = () => {
-
-  }
-
   renderItem = ({item}) => {
     return (
       <TouchableOpacity
