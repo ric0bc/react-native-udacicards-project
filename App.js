@@ -11,6 +11,7 @@ import DeckListView from './components/DeckListView'
 import DeckDetailView from './components/DeckDetailView'
 import DeckNewView from './components/DeckNewView'
 import AddCardToDeck from './components/AddCardToDeck'
+import QuizView from './components/QuizView'
 
 function UdaciStatusBar (){
   return (
@@ -38,6 +39,9 @@ const MainNavigator = StackNavigator({
   },
   AddCard: {
     screen: AddCardToDeck
+  },
+  QuizView: {
+    screen: QuizView
   }
 })
 
