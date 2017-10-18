@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
 import { AppLoading } from 'expo'
 
 import * as API from '../utils/api'
@@ -18,12 +18,19 @@ class DeckListView extends Component {
   }
   _keyExtractor = (item, index) => index;
 
+  onPressItem = () => {
+
+  }
+
   renderItem = ({item}) => {
     return (
-      <View style={styles.viewItem}>
-        <Text style={styles.textItem}>{item.title}</Text>
-        <Text>{item.questions.length} cards</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => this.props.navigation.navigate('DetailView', {item})}>
+        <View style={styles.viewItem}>
+          <Text style={styles.textItem}>{item.title}</Text>
+          <Text>{item.questions.length} cards</Text>
+        </View>
+      </TouchableOpacity>
     )
   }
 
