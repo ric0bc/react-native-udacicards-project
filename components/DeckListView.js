@@ -36,7 +36,6 @@ class DeckListView extends Component {
 
   render() {
     if(this.state.ready) {
-      console.log(Object.values(this.props.decks));
       return (
         <View style={{flex: 1}}>
         <FlatList

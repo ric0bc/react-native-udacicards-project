@@ -9,6 +9,7 @@ import * as API from './utils/api'
 import reducer from './reducers/rootReducer'
 import DeckListView from './components/DeckListView'
 import DeckDetailView from './components/DeckDetailView'
+import DeckNewView from './components/DeckNewView'
 
 function UdaciStatusBar (){
   return (
@@ -21,6 +22,9 @@ function UdaciStatusBar (){
 const Tabs = TabNavigator({
   ListView: {
     screen: DeckListView
+  },
+  NewDeck: {
+    screen: DeckNewView
   }
 })
 
