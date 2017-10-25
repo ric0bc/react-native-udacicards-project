@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native'
 
 export const gStyles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   btnPrimary: {
     marginTop: 40,

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { gStyles } from '../utils/globalStyles'
+import QuizResultsView from './QuizResultsView'
 
 class QuizView extends Component {
   state = {
@@ -13,7 +14,8 @@ class QuizView extends Component {
 
   incrementIndex = () => {
     this.setState((state) => ({
-      index: state.index += 1
+      index: state.index += 1,
+      showAnswer: false
     }))
   }
 
@@ -69,10 +71,11 @@ class QuizView extends Component {
       )
     } else {
         return (
-          <View>
-            <Text>Correct Answers: {Math.round(correctAnswers * 100 / deck.questions.length)}%</Text>
-            <Text>Incorrect Answers: {Math.round(incorrectAnswers * 100 / deck.questions.length)}%</Text>
-          </View>
+          <QuizResultsView
+            correctAnswers={correctAnswers}
+            incorrectAnswers={incorrectAnswers}
+            questionsLength={deck.questions.length}
+          />
         )
     }
   }
