@@ -61,8 +61,8 @@ class QuizView extends Component {
     } else {
         return (
           <View>
-            <Text>Correct Answers: {correctAnswers}</Text>
-            <Text>Incorrect Answers: {incorrectAnswers}</Text>
+            <Text>Correct Answers: {Math.round(correctAnswers * 100 / deck.questions.length)}%</Text>
+            <Text>Incorrect Answers: {Math.round(incorrectAnswers * 100 / deck.questions.length)}%</Text>
           </View>
         )
     }

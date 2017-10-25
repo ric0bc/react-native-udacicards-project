@@ -19,14 +19,14 @@ class DeckDetailView extends Component {
         <Text style={styles.title}>{item.title}</Text>
         <Text>{decks[item.title].questions.length} cards</Text>
         <TouchableOpacity
-          style={styles.addButton}
+          style={styles.primaryButton}
           onPress={() => this.props.navigation.navigate('AddCard', {item})}>
           <Text>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.addButton}
+          style={[styles.primaryButton, styles.blackButton]}
           onPress={() => this.props.navigation.navigate('QuizView', {deck})}>
-          <Text>Start Quiz</Text>
+          <Text style={{color: '#fff'}}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
     )
@@ -42,8 +42,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48
   },
-  addButton: {
-    marginTop: 40
+  primaryButton: {
+    width: 200,
+    height: 40,
+    marginTop: 20,
+    borderWidth: 1,
+    borderRadius: 4,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  blackButton: {
+    backgroundColor: '#000'
   }
 })
 
