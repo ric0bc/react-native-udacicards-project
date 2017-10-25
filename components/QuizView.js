@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
+import { gStyles } from '../utils/globalStyles'
+
 class QuizView extends Component {
   state = {
     showAnswer: false,
@@ -36,25 +38,32 @@ class QuizView extends Component {
     if(index <= deck.questions.length - 1){
       return (
         <View style={styles.container}>
-          <Text>
-            {deck.questions.indexOf(deck.questions[index]) + 1}/{deck.questions.length}
-          </Text>
+          <View style={styles.textCount}>
+            <Text>
+              {deck.questions.indexOf(deck.questions[index]) + 1}/{deck.questions.length}
+            </Text>
+          </View>
           {this.state.showAnswer
-            ? <Text>{deck.questions[index].answer}</Text>
-            : <Text>{deck.questions[index].question}</Text>
+            ? <Text style={styles.textQA}>{deck.questions[index].answer}</Text>
+            : <Text style={styles.textQA}>{deck.questions[index].question}</Text>
           }
           <TouchableOpacity
+            style={styles.btnSecondary}
             onPress={() => this.setState((state) => ({
               showAnswer: !state.showAnswer
             }))
           }>
-            <Text>Answer</Text>
+            <Text style={styles.btnSecondaryText}>{this.state.showAnswer ? 'Question' : 'Answer'}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.onHandleCorrect}>
-            <Text>Correct</Text>
+          <TouchableOpacity
+            style={[gStyles.btnPrimary, styles.btnCorrectColor]}
+            onPress={this.onHandleCorrect}>
+            <Text style={styles.btnTextColor}>Correct</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.onHandleIncorrect}>
-            <Text>Incorrect</Text>
+          <TouchableOpacity
+            style={[gStyles.btnPrimary, styles.btnIncorrectColor]}
+            onPress={this.onHandleIncorrect}>
+            <Text style={styles.btnTextColor}>Incorrect</Text>
           </TouchableOpacity>
         </View>
       )
@@ -73,7 +82,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'relative'
+  },
+  btnTextColor: {
+    color: '#fff'
+  },
+  btnCorrectColor: {
+    backgroundColor: 'green',
+    borderWidth: 0
+  },
+  btnIncorrectColor: {
+    backgroundColor: 'red',
+    borderWidth: 0,
+    marginTop: 10
+  },
+  textCount: {
+    position: 'absolute',
+    top: 5,
+    left: 5
+  },
+  textQA: {
+    fontSize: 38
+  },
+  btnSecondary: {
+    marginTop: 15,
+  },
+  btnSecondaryText: {
+    fontWeight: 'bold',
+    color: 'red'
   }
 })
 

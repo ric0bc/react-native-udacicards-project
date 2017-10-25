@@ -23,10 +23,16 @@ function UdaciStatusBar (){
 
 const Tabs = TabNavigator({
   ListView: {
-    screen: DeckListView
+    screen: DeckListView,
+    navigationOptions: {
+      title: 'DECKS'
+    }
   },
   NewDeck: {
-    screen: DeckNewView
+    screen: DeckNewView,
+    navigationOptions: {
+      title: 'NEW DECK'
+    }
   }
 })
 
@@ -41,7 +47,10 @@ const MainNavigator = StackNavigator({
     screen: DeckDetailView
   },
   AddCard: {
-    screen: AddCardToDeck
+    screen: AddCardToDeck,
+    navigationOptions: {
+      title: 'Add Card'
+    }
   },
   QuizView: {
     screen: QuizView
@@ -49,25 +58,6 @@ const MainNavigator = StackNavigator({
 })
 
 export default class App extends React.Component {
-  state = {
-    decks: {}
-  }
-  componentDidMount () {
-    // API.saveDeckTitle({ title: 'redux' })
-    //   .then( () => API.getDecks())
-
-    // API.addCardToDeck({
-    //   title: 'udacity',
-    //   card: {
-    //     question: 'Test question2',
-    //     answer: 'test answer2'
-    //   }
-    // })
-
-
-
-  }
-
   render() {
     return (
       <Provider store={store}>

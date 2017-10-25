@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
 
+import { gStyles } from '../utils/globalStyles'
+
 class DeckDetailView extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -16,15 +18,15 @@ class DeckDetailView extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text>{decks[item.title].questions.length} cards</Text>
+        <Text style={styles.title}>{deck.title}</Text>
+        <Text>{deck.questions.length} cards</Text>
         <TouchableOpacity
-          style={styles.primaryButton}
-          onPress={() => this.props.navigation.navigate('AddCard', {item})}>
+          style={[gStyles.btnPrimary, styles.btnWhite]}
+          onPress={() => this.props.navigation.navigate('AddCard', {deck})}>
           <Text>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.primaryButton, styles.blackButton]}
+          style={gStyles.btnPrimary}
           onPress={() => this.props.navigation.navigate('QuizView', {deck})}>
           <Text style={{color: '#fff'}}>Start Quiz</Text>
         </TouchableOpacity>
@@ -42,20 +44,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48
   },
-  primaryButton: {
-    width: 200,
-    height: 40,
-    marginTop: 20,
-    borderWidth: 1,
-    borderRadius: 4,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  blackButton: {
-    backgroundColor: '#000'
+  btnWhite: {
+    backgroundColor: 'transparent'
   }
 })
 
-const mapStateToProps = state => state
+const mapStateToProps = ({ decks }) => ({ decks })
 
 export default connect(mapStateToProps)(DeckDetailView)
