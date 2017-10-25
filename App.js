@@ -6,6 +6,7 @@ import { Constants } from 'expo'
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import * as API from './utils/api'
+import { setLocalNotification } from './utils/helpers'
 import reducer from './reducers/rootReducer'
 import DeckListView from './components/DeckListView'
 import DeckDetailView from './components/DeckDetailView'
@@ -58,6 +59,10 @@ const MainNavigator = StackNavigator({
 })
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification()
+  }
+
   render() {
     return (
       <Provider store={store}>
