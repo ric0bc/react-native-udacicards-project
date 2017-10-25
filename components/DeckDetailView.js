@@ -12,6 +12,8 @@ class DeckDetailView extends Component {
     const { item } = this.props.navigation.state.params
     const { decks } = this.props
 
+    const deck = decks[item.title]
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{item.title}</Text>
@@ -23,7 +25,7 @@ class DeckDetailView extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.addButton}
-          onPress={() => this.props.navigation.navigate('QuizView', {item})}>
+          onPress={() => this.props.navigation.navigate('QuizView', {deck})}>
           <Text>Start Quiz</Text>
         </TouchableOpacity>
       </View>
