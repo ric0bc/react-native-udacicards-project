@@ -1,7 +1,5 @@
 # UdaciCards Project
 
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
-
 This is a project for Udacity's react course.
 
 ## Install
@@ -20,4 +18,8 @@ Then you can tab "i" to open the iOS Simulator or "a" for Android.
 
 ## Testing
 
-I've tested the app on Android and on iPhone Simulator
+I've tested the app on Android (BlackBerry DTEK) marshmallow and on iPhone (iPhone X) Simulator with iOS 11
+
+
+
+This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
