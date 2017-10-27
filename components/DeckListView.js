@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native'
 import { AppLoading } from 'expo'
 
 import * as API from '../utils/api'

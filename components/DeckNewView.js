@@ -6,7 +6,7 @@ import { NavigationActions } from 'react-navigation'
 import * as API from '../utils/api'
 import { gStyles } from '../utils/globalStyles'
 import { addDeck } from '../actions/action'
-import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
+
 
 class DeckNewView extends Component {
   state = {
@@ -28,10 +28,6 @@ class DeckNewView extends Component {
       .then(() => this.props.navigation.navigate(
         'DetailView', { item: item[text] }))
       .then(() => this.setState({ text: ''}))
-
-    clearLocalNotification()
-      .then(setLocalNotification)
-
 
   }
 

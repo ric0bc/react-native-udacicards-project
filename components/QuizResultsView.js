@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
+import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
 
 import { gStyles } from '../utils/globalStyles'
 
 export default class QuizResultsView extends Component {
+  componentDidMount() {
+    clearLocalNotification()
+      .then(setLocalNotification)
+  }
 
   backToDeck = () => {
     this.props.navigation.dispatch(NavigationActions.back())

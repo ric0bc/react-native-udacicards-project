@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import {
+  View,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
@@ -72,16 +78,6 @@ const styles = StyleSheet.create({
     width: 300,
     borderRadius: 4,
     padding: 10
-  },
-  primaryButton: {
-    marginTop: 40,
-    width: 200,
-    height: 40,
-    borderWidth: 1,
-    backgroundColor: '#000',
-    borderRadius: 4,
-    alignItems: 'center',
-    justifyContent: 'center'
   }
 })
 
