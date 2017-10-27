@@ -16,5 +16,5 @@ Then you can tab "i" to open the iOS Simulator or "a" for Android.
 
 ## Screenshot
 
-![ScreenshotOne](sim1.png =200x433)
-![ScreenshotOne](sim2.png =200x433)
+![ScreenshotOne](sim1.png =200x)
+![ScreenshotOne](sim2.png =200x)
