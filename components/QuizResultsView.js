@@ -6,17 +6,13 @@ import { gStyles } from '../utils/globalStyles'
 
 export default class QuizResultsView extends Component {
 
-  restartQuiz = () => {
-    console.log('restart');
-  }
-
   backToDeck = () => {
     this.props.navigation.dispatch(NavigationActions.back())
   }
 
   render() {
     const { correctAnswers, incorrectAnswers, questionsLength } = this.props
-    
+
     return (
       <View style={gStyles.container}>
         <Text style={styles.text}>

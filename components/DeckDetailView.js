@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
+import { AppLoading } from 'expo'
 
 import { gStyles } from '../utils/globalStyles'
 
@@ -14,26 +15,29 @@ class DeckDetailView extends Component {
     const { item } = this.props.navigation.state.params
     const { decks } = this.props
 
-    console.log(decks);
-
     const deck = decks[item.title]
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{deck.title}</Text>
-        <Text>{deck.questions.length} cards</Text>
-        <TouchableOpacity
-          style={[gStyles.btnPrimary, styles.btnWhite]}
-          onPress={() => this.props.navigation.navigate('AddCard', {deck})}>
-          <Text>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={gStyles.btnPrimary}
-          onPress={() => this.props.navigation.navigate('QuizView', {deck})}>
-          <Text style={{color: '#fff'}}>Start Quiz</Text>
-        </TouchableOpacity>
-      </View>
-    )
+    if (deck) {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.title}>{deck.title}</Text>
+          <Text>{deck.questions.length} cards</Text>
+          <TouchableOpacity
+            style={[gStyles.btnPrimary, styles.btnWhite]}
+            onPress={() => this.props.navigation.navigate('AddCard', {deck})}>
+            <Text>Add Card</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            disabled={deck.questions.length > 0 ? false : true}
+            style={gStyles.btnPrimary}
+            onPress={() => this.props.navigation.navigate('QuizView', {deck})}>
+            <Text style={{color: '#fff'}}>Start Quiz</Text>
+          </TouchableOpacity>
+        </View>
+      )
+    } else {
+      return <AppLoading />
+    }
   }
 }
 
