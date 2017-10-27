@@ -26,12 +26,12 @@ class DeckNewView extends Component {
     API.saveDeckTitle({ title: text })
       .then(() => this.props.addDeck(item))
       .then(() => this.setState({text: ''}))
-    // this.props.navigation.navigate('DetailView', {item})
 
     clearLocalNotification()
       .then(setLocalNotification)
 
-    this.props.navigation.dispatch(NavigationActions.back({key: 'NewDeck'}))
+    // this.props.navigation.dispatch(NavigationActions.back({key: 'NewDeck'}))
+    this.props.navigation.navigate('DetailView', {item})
   }
 
   render() {

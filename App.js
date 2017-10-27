@@ -4,6 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
 import { StackNavigator, TabNavigator } from 'react-navigation'
+import { Ionicons } from '@expo/vector-icons'
 
 import * as API from './utils/api'
 import { setLocalNotification } from './utils/helpers'
@@ -26,13 +27,15 @@ const Tabs = TabNavigator({
   ListView: {
     screen: DeckListView,
     navigationOptions: {
-      title: 'DECKS'
+      title: 'DECKS',
+      tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home-outline" size={30} color={tintColor} />
     }
   },
   NewDeck: {
     screen: DeckNewView,
     navigationOptions: {
-      title: 'NEW DECK'
+      title: 'NEW DECK',
+      tabBarIcon: ({ tintColor }) => <Ionicons name="ios-add-outline" size={30} color={tintColor} />
     }
   }
 })

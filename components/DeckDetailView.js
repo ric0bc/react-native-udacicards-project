@@ -14,6 +14,8 @@ class DeckDetailView extends Component {
     const { item } = this.props.navigation.state.params
     const { decks } = this.props
 
+    console.log(decks);
+
     const deck = decks[item.title]
 
     return (
