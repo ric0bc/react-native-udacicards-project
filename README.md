@@ -16,8 +16,8 @@ Then you can tab "i" to open the iOS Simulator or "a" for Android.
 
 ## Screenshot
 
-<img src="/sim1.png" width=200px />
-<img src="/sim2.png" width=200px />
+<img src="/sim1.png" width=200px style="display: inline-block" />
+<img src="/sim2.png" width=200px style="display: inline-block" />
 
 ## Testing
 
