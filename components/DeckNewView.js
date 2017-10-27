@@ -48,7 +48,7 @@ class DeckNewView extends Component {
           <TouchableOpacity
             style={gStyles.btnPrimary}
             onPress={this.submit}>
-            <Text style={{color: '#fff'}}>Submit</Text>
+            <Text style={{color: '#fff'}}>Create Deck</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
