@@ -33,6 +33,14 @@ class QuizView extends Component {
     }))
   }
 
+  restartQuiz = () => {
+    this.setState({
+      index: 0,
+      correctAnswers: 0,
+      incorrectAnswers:0
+    })
+  }
+
   render() {
     const { deck } = this.props.navigation.state.params
     const { index, incorrectAnswers, correctAnswers } = this.state
@@ -75,6 +83,8 @@ class QuizView extends Component {
             correctAnswers={correctAnswers}
             incorrectAnswers={incorrectAnswers}
             questionsLength={deck.questions.length}
+            navigation={this.props.navigation}
+            restartQuiz={this.restartQuiz}
           />
         )
     }

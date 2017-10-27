@@ -1,19 +1,50 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { Component } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 
 import { gStyles } from '../utils/globalStyles'
 
-const QuizResultsView = (props) => (
-  <View style={gStyles.container}>
-    <Text style={styles.text}>Correct Answers: {Math.round(props.correctAnswers * 100 / props.questionsLength)}%</Text>
-    <Text style={styles.text}>Incorrect Answers: {Math.round(props.incorrectAnswers * 100 / props.questionsLength)}%</Text>
-  </View>
-)
+export default class QuizResultsView extends Component {
+
+  restartQuiz = () => {
+    console.log('restart');
+  }
+
+  backToDeck = () => {
+    this.props.navigation.dispatch(NavigationActions.back())
+  }
+
+  render() {
+    const { correctAnswers, incorrectAnswers, questionsLength } = this.props
+    
+    return (
+      <View style={gStyles.container}>
+        <Text style={styles.text}>
+          Correct Answers: {Math.round(correctAnswers * 100 / questionsLength)}%
+        </Text>
+        <Text style={styles.text}>
+          Incorrect Answers: {Math.round(incorrectAnswers * 100 / questionsLength)}%
+        </Text>
+        <TouchableOpacity
+          style={gStyles.btnPrimary}
+          onPress={this.props.restartQuiz}>
+          <Text style={styles.btnFontColor}>Restart Quiz</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={gStyles.btnPrimary}
+          onPress={this.backToDeck}>
+          <Text style={styles.btnFontColor}>Back to Deck</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 32
+  },
+  btnFontColor: {
+    color: '#fff'
   }
 })
-
-export default QuizResultsView
